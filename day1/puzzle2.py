@@ -20,9 +20,9 @@ def call_function_on_example_input(example_input, function):
     return result
 
 
-def call_function_on_real_input(dayNumber, function):
+def call_function_on_real_input(dayNumber, puzzleNumber, function):
     result = []
-    with open("./day1/input{}.txt".format(dayNumber), "r") as file:
+    with open("./day{}/input{}.txt".format(dayNumber, puzzleNumber), "r") as file:
         lines = file.readlines()
     for line in lines:
         result.append(function(line))
@@ -94,6 +94,6 @@ def check_is_typed_digit(snippet, reverse=False):
 
 
 print(call_function_on_example_input(example_input, get_calibration_value))
-print(call_function_on_real_input(2, get_calibration_value))
+print(call_function_on_real_input(1, 2, get_calibration_value))
 
-print(sum(call_function_on_real_input(1, get_calibration_value)))  # 54530
+print(sum(call_function_on_real_input(1, 2, get_calibration_value)))  # 54530
